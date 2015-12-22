@@ -1,15 +1,32 @@
 if (Meteor.isClient) {
   // This code only runs on the client
   angular.module('simple-todos',['angular-meteor']);
+
+  function onReady() {
+    angular.bootstrap(document, ['simple-todos']);
+  }
  
-  angular.module('simple-todos').controller('TodosListCtrl', ['$scope',
-    function ($scope) {
+  if (Meteor.isCordova){
+    angular.element(document).on('deviceready', onReady);
+  }
+  else{
+    angular.element(document).ready(onReady);
+  }
+
  
-      $scope.tasks = [
-        { text: 'This is task 1' },
-        { text: 'This is task 2' },
-        { text: 'This is task 3' }
-      ];
+  angular.module('simple-todos').controller('TodosListCtrl', ['$scope', '$meteor',
+    function ($scope, $meteor) {
+ 
+      $scope.tasks = $meteor.collection( function() {
+        return Tasks.find({}, { sort: { createdAt: -1 } })
+      });
+
+      $scope.addTask = function (newTask) {
+        $scope.tasks.push( {
+          text: newTask,
+          createdAt: new Date() }
+        );
+      };
  
   }]);
 }
