@@ -1,0 +1,21 @@
+<div ng-controller="PlacesListController as vm">
+
+	<form>
+		<label>Name</label>
+		<input ng-model="vm.newItem.name">
+		<label>Desc</label>
+		<input ng-model="vm.newItem.desc">
+		<label>Public</label>
+		<input type="checkbox" ng-model="vm.newItem.public">
+		
+		<button ng-click="vm.add();">Add Place</button>
+	</form>
+
+	<ul>
+		<li ng-repeat="item in vm.items">
+			<a href="/places/{{item._id}}">{{item.name}}</a>
+			<p>{{item.desc}}</p>
+			<button ng-click="vm.remove(item)">X</button>
+		</li>
+	</ul>
+</div>
