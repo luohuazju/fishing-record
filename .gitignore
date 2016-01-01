@@ -4,3 +4,5 @@ logs
 
 #customer
 smart-fisher/.meteor/
+smart-fisher/resources/android
+smart-fisher/resources/ios
