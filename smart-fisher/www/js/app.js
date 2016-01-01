@@ -22,7 +22,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
+
   $stateProvider
     .state('app', {
     url: '/app',

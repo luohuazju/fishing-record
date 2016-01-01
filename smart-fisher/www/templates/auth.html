@@ -1,0 +1,53 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">登录/注册</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAuth()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="has-tabs">
+
+<ion-tabs class="tabs-positive tabs-icon-top">
+
+  <ion-tab title="登录" icon-on="ion-ios-person" icon-off="ion-ios-person-outline">
+    <form ng-submit="login()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">邮箱</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">密码</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-stable button-block" type="submit">登录</button>
+        </label>
+      </div>
+    </form>
+  </ion-tab>
+
+  <ion-tab title="注册？" icon-on="ion-ios-personadd" icon-off="ion-ios-personadd-outline">
+    <form ng-submit="register()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">邮箱</span>
+          <input type="text" ng-model="registerData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">用户名</span>
+          <input type="text" ng-model="registerData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">密码</span>
+          <input type="password" ng-model="registerData.password">
+        </label>
+        <label class="item">
+          <button class="button button-stable button-block" type="submit">注册</button>
+        </label>
+      </div>
+    </form>
+  </ion-tab>
+  </ion-content>
+</ion-modal-view>
+
